@@ -9,3 +9,7 @@ Revision history for Test-NoTabs
 
 0.3  2006-08-26
      - Added missing dependancy (Test::Group)
+
+0.4  2008-12-14
+     - Change to Module::Install so that we install 
+       cleanly on a fresh perl 5.8

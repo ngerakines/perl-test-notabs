@@ -1,10 +1,11 @@
 use strict;
 
 use Test::NoTabs;
+use FindBin qw/$Bin/;
 
 use File::Temp qw( tempdir tempfile );
 
-all_perl_files_ok();
+all_perl_files_ok("$Bin/../lib");
 
 notabs_ok( $0, "$0 is tab free" );
 
