@@ -10,7 +10,7 @@ use File::Find;
 
 use vars qw( $VERSION $PERL $UNTAINT_PATTERN $PERL_PATTERN);
 
-$VERSION = '0.4';
+$VERSION = '0.5';
 
 $PERL    = $^X || 'perl';
 $UNTAINT_PATTERN  = qr|^([-+@\w./:\\]+)$|;
