@@ -119,7 +119,7 @@ sub _module_to_path {
 
 sub _make_plan {
     unless ($Test->has_plan) {
-        $Test->plan( no_plan => 1 );
+        $Test->plan( 'no_plan' );
     }
     $Test->expected_tests;
 }

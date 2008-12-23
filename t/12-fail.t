@@ -1,6 +1,6 @@
 use strict;
 
-use Test::More no_plan => 1;
+use Test::More qw(no_plan);
 
 use Test::Group;
 
