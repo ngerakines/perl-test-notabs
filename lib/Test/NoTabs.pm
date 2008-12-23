@@ -10,7 +10,7 @@ use File::Find;
 
 use vars qw( $VERSION $PERL $UNTAINT_PATTERN $PERL_PATTERN);
 
-$VERSION = '0.1';
+$VERSION = '0.3.1';
 
 $PERL    = $^X || 'perl';
 $UNTAINT_PATTERN  = qr|^([-+@\w./:\\]+)$|;
@@ -64,17 +64,17 @@ sub _all_files {
 
 sub notabs_ok {
     my $file = shift;
-    my $test_txt = shift || "Found tabs in '$file' on line ";
+    my $test_txt = shift || "Found tabs in '$file'";
     $file = _module_to_path($file);
-    open my($fh), $file or do { $Test->ok(0, $test_txt); $Test->diag("Could not open $file: $!"); return; };
+    open my $fh, $file or do { $Test->ok(0, $test_txt); $Test->diag("Could not open $file: $!"); return; };
     my $line = 0;
     while (<$fh>) {
         $line++;
-        next if (/^\s*#/); # Skip comments
-        next if (/^\s*=.+/ .. /^\s*=(cut|back|end)/); # Skip pod
-        last if (/^\s*(__END__|__DATA__)/); # End of code
+        next if (/^\s*#/);
+        next if (/^\s*=.+/ .. /^\s*=(cut|back|end)/);
+        last if (/^\s*(__END__|__DATA__)/);
         if ( /\t/ ) {
-          $Test->ok(0, $test_txt . $line);
+          $Test->ok(0, $test_txt . " on line $line");
           return 0;
         }
     }
@@ -98,7 +98,7 @@ sub _is_perl_script {
     my $file = shift;
     return 1 if $file =~ /\.pl$/i;
     return 1 if $file =~ /\.t$/;
-    open my($fh), $file or return;
+    open my $fh, $file or return;
     my $first = <$fh>;
     return 1 if defined $first && ($first =~ $PERL_PATTERN);
     return;
@@ -157,7 +157,7 @@ or
 
 =head1 DESCRIPTION
 
-This module scans your project/distrobution for any perl files (scripts,
+This module scans your project/distribution for any perl files (scripts,
 modules, etc) for the presence of tabs.
 
 =head1 EXPORT
@@ -232,7 +232,9 @@ L<http://search.cpan.org/dist/Test-NoTabs>
 Inspired by some code written by Paul Lindner.
 
 L<Test::Strict> was used as an example when creating this module and
-distrobution.
+distribution.
+
+Rick Myers and Emanuele Zeppieri also provided valuable feedback.
 
 =head1 SEE ALSO
 

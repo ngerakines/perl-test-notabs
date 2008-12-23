@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: Test-NoTabs
-version: 0.1
+version: 0.3
 author:
   - Nick Gerakines <nick@socklabs.com>
 abstract: Check the presence of tabs in your project

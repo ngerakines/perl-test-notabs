@@ -13,6 +13,7 @@ my $builder = Module::Build->new(
         'File::Spec' => 0,
         'FindBin' => 0,
         'File::Find' => 0,
+        'Test::Group' => 0,
     },
     add_to_cleanup      => [ 'Test-NoTabs-*' ],
 );

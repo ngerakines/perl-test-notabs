@@ -1,4 +1,8 @@
 Build.PL
+<<<<<<< HEAD:MANIFEST
+=======
+Makefile.PL
+>>>>>>> trunk:MANIFEST
 Changes
 MANIFEST
 META.yml
