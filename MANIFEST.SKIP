@@ -1,0 +1,12 @@
+MANIFEST.bak
+MANIFEST.SKIP
+.git
+.gitignore
+Test-NoTabs-*
+Makefile.old
+.shipit
+Makefile
+blib
+pm_to_blib
+.*.swp
+
